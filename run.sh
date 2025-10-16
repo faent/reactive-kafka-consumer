@@ -1,7 +1,7 @@
 #!/bin/bash
 
 DD_AGENT_JAR="dd-java-agent.jar"
-DD_AGENT_URL="https://github.com/DataDog/dd-trace-java/releases/download/v1.43.0/dd-java-agent-1.43.0.jar"
+DD_AGENT_URL="https://github.com/DataDog/dd-trace-java/releases/download/v1.54.0/dd-java-agent-1.54.0.jar"
 
 cleanup() {
     echo ""
@@ -30,4 +30,5 @@ fi
 
 docker-compose up -d
 
+export DD_TRACE_128_BIT_TRACEID_GENERATION_ENABLED=false
 java -javaagent:./dd-java-agent.jar -jar ./build/libs/reactive-kafka-consumer-1.0-SNAPSHOT-all.jar
